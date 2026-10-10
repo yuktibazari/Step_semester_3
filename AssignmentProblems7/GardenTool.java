@@ -1,0 +1,40 @@
+abstract class GardenTool {
+    GardenTool() {
+    }
+
+    String baseUse() {
+        return "Using the tool in the garden";
+    }
+
+    public abstract String use();
+}
+
+class CuttingTool extends GardenTool {
+    CuttingTool() {
+        super();
+    }
+
+    public String use() {
+        return super.baseUse() + ", blade sharpened first";
+    }
+}
+
+class Pruner extends CuttingTool {
+    Pruner() {
+        super();
+    }
+
+    public String use() {
+        return super.use() + ", then trimming branches precisely";
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        CuttingTool c = new CuttingTool();
+        Pruner p = new Pruner();
+
+        System.out.println(c.use());
+        System.out.println(p.use());
+    }
+}
